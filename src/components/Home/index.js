@@ -207,8 +207,11 @@ const HomePage = () => (
   </div>
 );
 
-const condition = authUser => !!authUser;
-
+// const condition = authUser => !!authUser;
+//
+// console.log(condition);
+//
 export default compose(
-  withAuthorization(condition),
+  withAuthorization(authUser => !!authUser),
 )(HomePage);
+// export default HomePage;

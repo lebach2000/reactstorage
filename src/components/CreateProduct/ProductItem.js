@@ -8,7 +8,6 @@ class ProductItem extends Component {
     this.state = {
       editMode: false,
       editText: this.props.message.text,
-      image: '',
     };
   }
 
@@ -47,7 +46,7 @@ class ProductItem extends Component {
             <div className="col-sm-2">{message.namedish}</div>
             <div className="col-sm-2">{message.price}</div>
             <div className="col-sm-2">{message.title}</div>
-            <div className="col-sm-2"> <img src={ this.state.image } alt="Lithuanian flag" /></div>
+            <div className="col-sm-2"><img style={{with:"100px",height:"100px"}} src={message.url} alt=""/></div>
           </div>
         )}
 

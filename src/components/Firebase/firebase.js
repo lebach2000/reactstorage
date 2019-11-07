@@ -1,5 +1,6 @@
-import app from "firebase/app";
+import * as firebase from 'firebase';
 import "firebase/storage";
+import * as ROUTES from '../../constants/routes';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,10 +14,22 @@ const firebaseConfig = {
   measurementId: "G-DTM9RNMR5N"
 };
 
+var app = firebase.initializeApp(firebaseConfig);
 // Initialize Firebase
 
-app.initializeApp(firebaseConfig);
-
+// firebase.initializeApp(firebaseConfig);
+// const firebaseOFBO = app.firestore();
 const storage = app.storage();
+console.log(app);
 
+app.auth().onAuthStateChanged(function(users) {
+  if (users) {
+    // User is signed in.
+    this.props.history.push(ROUTES.HOME)
+
+  } else {
+    // No user is signed in.
+    this.props.history.push(ROUTES.SIGN_IN)
+  }
+});
 export { app, storage as default };

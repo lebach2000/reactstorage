@@ -6,6 +6,7 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import { withAuthorization } from '../Session';
 
 const SignInPage = () => (
   <div>
@@ -83,7 +84,11 @@ const SignInForm = compose(
   withRouter,
   withFirebase,
 )(SignInFormBase);
-
-export default SignInPage;
-
 export { SignInForm};
+
+// export default SignInPage;
+
+export default compose(
+  withAuthorization(authUser => !authUser),
+)(SignInPage);
+

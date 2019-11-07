@@ -5,6 +5,7 @@ import { withFirebase } from '../Firebase';
 import { compose } from 'recompose';
 import ProductList from '../CreateProduct/ProductList';
 
+
 class TablePage extends Component {
 
   constructor(props) {

@@ -17,7 +17,6 @@ class Firebase {
 
 
   // *** Auth API ***
-  firestored = this.db;
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
